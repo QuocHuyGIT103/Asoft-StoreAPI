@@ -1,0 +1,91 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
+    <h2 class="text-2xl mb-4 text-center">
+        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+    </h2>
+    
+    @if (ViewData["Error"] != null)
+    {
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            @ViewData["Error"]
+        </div>
+    }
+
+    <!-- Debug info -->
+    <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded mb-4 text-sm">
+        <strong>Thông tin đăng nhập:</strong><br>
+        Username: <strong>admin</strong><br>
+        Password: <strong>123456</strong><br>
+        Current token: <span id="currentToken">Checking...</span><br>
+        Cookie count: <span id="cookieCount">Checking...</span>
+    </div>
+
+    <form asp-controller="Home" asp-action="Login" method="post" id="loginForm">
+        <div asp-validation-summary="ModelOnly" class="text-red-600 mb-4"></div>
+        
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">Tên đăng nhập</label>
+            <input type="text" name="username" value="admin" class="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500" required />
+        </div>
+        
+        <div class="mb-6">
+            <label class="block text-gray-700 font-bold mb-2">Mật khẩu</label>
+            <input type="password" name="password" value="123456" class="w-full p-3 border rounded-lg focus:outline-none focus:border-blue-500" required />
+        </div>
+        
+        <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 font-bold" id="loginBtn">
+            <i class="fas fa-sign-in-alt"></i> Đăng nhập
+        </button>
+    </form>
+
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkCookie();
+            
+            // Add form submit handler
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                console.log('Login form submitted');
+                document.getElementById('loginBtn').disabled = true;
+                document.getElementById('loginBtn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang đăng nhập...';
+            });
+        });
+
+        function checkCookie() {
+            const token = getCookie('token');
+            const allCookies = document.cookie;
+            
+            document.getElementById('currentToken').textContent = token ? 'Có token (' + token.length + ' chars)' : 'Không có token';
+            document.getElementById('cookieCount').textContent = allCookies.split(';').length + ' cookies';
+            
+            console.log('All cookies:', allCookies);
+            console.log('Token cookie:', token);
+        }
+
+        function testCookie() {
+            document.cookie = "testtoken=abc123; path=/; max-age=3600";
+            console.log('Test cookie set');
+            checkCookie();
+        }
+
+        function deleteCookie() {
+            document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            console.log('Token cookie deleted');
+            checkCookie();
+        }
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
+    </script>
+}

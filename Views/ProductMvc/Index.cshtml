@@ -1,0 +1,45 @@
+﻿@model List<StoreAPI.Models.Product>
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-4">Danh sách sản phẩm</h2>
+    <a href="@Url.Action("Create", "ProductMvc")" class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 mb-4 inline-block transition duration-200">Thêm sản phẩm</a>
+    @if (TempData["Error"] != null)
+    {
+        <p class="text-red-500 mb-4">@TempData["Error"]</p>
+    }
+    @if (Model != null && Model.Any())
+    {
+        <table class="w-full border-collapse border border-gray-300 table-auto">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border p-2 text-left">Mã sản phẩm</th>
+                    <th class="border p-2 text-left">Tên sản phẩm</th>
+                    <th class="border p-2 text-left">Giá</th>
+                    <th class="border p-2 text-left">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr class="hover:bg-gray-100">
+                        <td class="border p-2">@product.ProductID</td>
+                        <td class="border p-2">@product.ProductName</td>
+                        <td class="border p-2">@product.Price.ToString("N0") VNĐ</td>
+                        <td class="border p-2">
+                            <a href="@Url.Action("Edit", "ProductMvc", new { id = product.ProductID })" class="text-blue-600 hover:underline mr-2">Sửa</a>
+                            <a href="@Url.Action("Delete", "ProductMvc", new { id = product.ProductID })" class="text-red-600 hover:underline" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-gray-500">Không có sản phẩm nào.</p>
+    }
+</div>
