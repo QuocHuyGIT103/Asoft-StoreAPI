@@ -1,4 +1,5 @@
 D:\inetpub\StoreAPI\StoreAPI.exe
+D:\inetpub\StoreAPI\web.config
 D:\inetpub\StoreAPI\appsettings.Development.json
 D:\inetpub\StoreAPI\appsettings.json
 D:\inetpub\StoreAPI\refs\Microsoft.AspNetCore.Antiforgery.dll

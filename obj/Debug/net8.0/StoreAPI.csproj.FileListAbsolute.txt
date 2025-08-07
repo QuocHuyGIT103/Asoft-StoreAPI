@@ -408,6 +408,7 @@ C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\StoreAPI.MvcApplica
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\StoreAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\StoreAPI.RazorAssemblyInfo.cache
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\StoreAPI.RazorAssemblyInfo.cs
+C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\StoreAPI.sourcelink.json
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

@@ -422,3 +422,5 @@ C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Release\net8.0\refint\StoreAPI.d
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Release\net8.0\StoreAPI.pdb
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Release\net8.0\StoreAPI.genruntimeconfig.cache
 C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Release\net8.0\ref\StoreAPI.dll
+C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\obj\Release\net8.0\StoreAPI.sourcelink.json
+C:\Users\Quoc Huy\Desktop\StoreAPI\StoreAPI\bin\Release\net8.0\web.config

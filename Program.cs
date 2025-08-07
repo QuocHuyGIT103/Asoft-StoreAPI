@@ -63,7 +63,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactNativeApp", policy =>
     {
-        policy.WithOrigins("http://localhost:19006", "https://localhost:5000", "http://localhost:5000", "http://192.168.0.123:5000")
+        policy.WithOrigins("http://localhost:19006", "https://localhost:5000", "http://localhost:5000", "http://192.168.0.119:5000")
               .AllowAnyMethod()
               .AllowAnyHeader()
               .AllowCredentials();
